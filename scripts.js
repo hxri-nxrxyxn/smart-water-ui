@@ -39,7 +39,7 @@ slider.addEventListener("click", () => {
 const temperature = ref(db, 'temperature');
 const moisture = ref(db, 'moisture_percentage');
 const humidity = ref(db, 'humidity');
-const mode = ref(db, 'write/mode');
+const mode = ref(db, 'Motor/Speed'); // lazy to rename 'mode' as 'speed'
 
 // Read values
 onValue(temperature, (snapshot) => {
@@ -65,17 +65,17 @@ onValue(mode, (snapshot) => {
     console.log(data);
     const dataContainer = document.getElementById('speed');
     dataContainer.innerHTML = JSON.stringify(Number(data), null, 2);
-    slider.value = data;
+    slider.value = data; // updating slider value
 });
 
 // Write values
 function writeModeData() {
-    var speed = slider.value
+    var speed = slider.value // dirty i know
     const db = getDatabase();
-    set(ref(db, '/write'), {
-        mode : speed
+    set(ref(db, '/Motor'), {
+        Speed : speed
     });
-    console.log("successfully written")
+    console.log("successfully written") // confirm write
 };
 
 
