@@ -46,13 +46,13 @@ btnState.addEventListener("click", () => {
         currentState = 0;
         btnState.textContent = "OFF";
         document.querySelector('.life').style.backgroundColor = '#d63031'
-        writeStatusData();
+        writeModeData();
     }
     else {
         currentState = 1;
         btnState.textContent = "ON";
         document.querySelector('.life').style.backgroundColor = '#00b894'
-        writeStatusData();
+        writeModeData();
     }
 });
 
@@ -94,19 +94,13 @@ onValue(mode, (snapshot) => {
 // Write values
 function writeModeData() {
     var speed = slider.value // dirty i know
+    var status = currentState;
     const db = getDatabase();
     set(ref(db, '/Motor'), {
-        Speed : speed
-    });
-    console.log("successfully written speed") // confirm write
-};
-function writeStatusData() {
-    const db = getDatabase();
-    var status = currentState // dirty i know
-    set(ref(db, '/Motor'), {
+        Speed : speed,
         Status : status
     });
-    console.log("successfully written status") // confirm write
+    console.log("successfully written") // confirm write
 };
 
 

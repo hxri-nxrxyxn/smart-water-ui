@@ -53,5 +53,6 @@ body > div {
     height: 5vh;
     width: 5vh;
     background-color: #00b894;
+    transition: background-color ease 0.9s;
     border-radius: 5rem;
 }
