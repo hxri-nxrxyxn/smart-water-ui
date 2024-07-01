@@ -35,6 +35,25 @@ slider.addEventListener("click", () => {
     writeModeData();
 });
 
+// goes for switch
+let currentState = 1
+const btnState = document.getElementById("switch")
+btnState.textContent = "ON"
+btnState.classList.remove("switch-off")
+
+btnState.addEventListener("click", () => {
+    if (currentState) {
+        currentState = 0;
+        btnState.textContent = "OFF";
+        writeStatusData();
+    }
+    else {
+        currentState = 1;
+        btnState.textContent = "ON";
+        writeStatusData();
+    }
+});
+
 // User Config
 const temperature = ref(db, 'temperature');
 const moisture = ref(db, 'moisture_percentage');
@@ -62,10 +81,12 @@ onValue(humidity, (snapshot) => {
 });
 onValue(mode, (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
-    const dataContainer = document.getElementById('speed');
-    dataContainer.innerHTML = JSON.stringify(Number(data), null, 2);
-    slider.value = data; // updating slider value
+    if (data !== null) {
+        console.log(data);
+        const dataContainer = document.getElementById('speed');
+        dataContainer.innerHTML = JSON.stringify(Number(data), null, 2);
+        slider.value = data; // updating slider value
+    }
 });
 
 // Write values
@@ -75,7 +96,15 @@ function writeModeData() {
     set(ref(db, '/Motor'), {
         Speed : speed
     });
-    console.log("successfully written") // confirm write
+    console.log("successfully written speed") // confirm write
+};
+function writeStatusData() {
+    const db = getDatabase();
+    var status = currentState // dirty i know
+    set(ref(db, '/Motor'), {
+        Status : status
+    });
+    console.log("successfully written status") // confirm write
 };
 
 

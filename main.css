@@ -17,6 +17,7 @@ body {
 }
 body > div {
     margin: 5rem 0;
+    width: 80vw;
 }
 .line {
     display: flex;
@@ -35,6 +36,12 @@ body > div {
     display: flex;
     align-items: center;
 }
-
-
-
+.button a {
+    font-size: 2rem;
+    background-color: #efefef;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+}
+.slider input {
+    width: 100%;
+}
