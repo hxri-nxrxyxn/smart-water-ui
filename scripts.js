@@ -45,11 +45,13 @@ btnState.addEventListener("click", () => {
     if (currentState) {
         currentState = 0;
         btnState.textContent = "OFF";
+        document.querySelector('.life').style.backgroundColor = '#d63031'
         writeStatusData();
     }
     else {
         currentState = 1;
         btnState.textContent = "ON";
+        document.querySelector('.life').style.backgroundColor = '#00b894'
         writeStatusData();
     }
 });

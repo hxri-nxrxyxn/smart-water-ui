@@ -45,3 +45,13 @@ body > div {
 .slider input {
     width: 100%;
 }
+.life {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    height: 5vh;
+    width: 5vh;
+    background-color: #00b894;
+    border-radius: 5rem;
+}
