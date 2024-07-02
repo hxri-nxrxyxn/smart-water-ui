@@ -6,13 +6,15 @@
         <link href="main.css" rel="stylesheet">
     </head>
     <body>
+
         <div class="image">
             <img src="logo.png" width="64">
         </div>
+
         <div class="lines">
             <div class="line">
                 <h2>Moisture</h2>
-                <p id="moisture"></p>
+                <p id="moisture"></p> <!-- to be populated by firebase -->
             </div>
             <div class="line">
                 <h2>Temperature</h2>
@@ -27,13 +29,18 @@
                 <p id="speed"></p>
             </div>
         </div>
+        
         <div class="button">
             <a id="switch">ON</a>
         </div>
+
         <div class="slider">
             <input type="range" min="0" max="255" id="slider">
         </div>
-        <div class="life"></div>
+
+        <div class="life"></div> <!-- that dot at top left corner -->
+
         <script src="scripts.js" type="module"></script>
+
     </body>
 </html>
