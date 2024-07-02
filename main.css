@@ -56,3 +56,10 @@ body > div {
     transition: background-color ease 0.9s;
     border-radius: 5rem;
 }
+.image {
+    display: flex;
+    justify-content: center;
+}
+.image img {
+    width: 20rem;
+}
